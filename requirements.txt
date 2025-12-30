@@ -1,0 +1,41 @@
+# ==============================================================================
+# Soprano TTS Node Requirements
+# ==============================================================================
+#
+# IMPORTANT: soprano-tts cannot be auto-installed via requirements.txt because
+# it needs --no-deps flag to avoid upgrading PyTorch and breaking ComfyUI.
+#
+# MANUAL INSTALLATION REQUIRED:
+#
+# 1. Activate your ComfyUI Python environment:
+#    - Linux/Mac: source /shared-big/ComfyUI/venv/bin/activate
+#    - Windows: \path\to\ComfyUI\venv\Scripts\activate
+#
+# 2. Install soprano-tts WITHOUT dependencies:
+#    pip install soprano-tts --no-deps
+#
+# 3. Install minimal required dependencies:
+#    pip install unidecode
+#
+# That's it! scipy and transformers are already in ComfyUI.
+#
+# WHY --no-deps IS REQUIRED:
+# soprano-tts depends on lmdeploy which requires PyTorch 2.8+ and will upgrade
+# your PyTorch from 2.5.1 to 2.9.1, breaking ComfyUI. Using --no-deps bypasses
+# this and uses the transformers backend instead (still very fast!).
+#
+# VERIFICATION:
+# Run: python /shared-big/ComfyUI/custom_nodes/ComfyUI-Soprano-TTS/test_compat.py
+# Should output: "✅ ALL TESTS PASSED! Soprano TTS should work!"
+#
+# For detailed troubleshooting, see INSTALL_WORKAROUND.md
+# ==============================================================================
+
+# Dependencies that CAN be auto-installed (already in ComfyUI typically):
+scipy>=1.10.0
+transformers>=4.30.0
+
+# Dependencies that MUST be manually installed:
+# soprano-tts  # Install with: pip install soprano-tts --no-deps
+unidecode>=1.3.0
+
