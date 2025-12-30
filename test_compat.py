@@ -199,7 +199,8 @@ def main():
         if 'pytorch' in failed:
             print("\n🔧 PyTorch version issue:")
             print("   Your PyTorch is too old (need 2.5.0+)")
-            print("   Fix: pip install torch==2.5.1 --extra-index-url https://download.pytorch.org/whl/cu121")
+            print("   Fix (install ALL THREE together):")
+            print("   pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --extra-index-url https://download.pytorch.org/whl/cu121")
             
         if 'dependencies' in failed:
             print("\n🔧 Missing dependencies:")
@@ -207,25 +208,25 @@ def main():
             
         if 'patches' in failed or 'torch_compiler' in failed:
             print("\n🔧 Compatibility patch issue:")
-            print("   This usually means PyTorch is broken or incompatible")
-            print("   Fix: Reinstall PyTorch:")
-            print("      pip uninstall torch")
-            print("      pip install torch==2.5.1 --extra-index-url https://download.pytorch.org/whl/cu121")
+            print("   This usually means PyTorch is broken or mismatched with torchvision/torchaudio")
+            print("   Fix: Reinstall PyTorch stack (ALL THREE together):")
+            print("   pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --extra-index-url https://download.pytorch.org/whl/cu121")
             
         if 'soprano' in failed:
             print("\n🔧 Soprano import failed:")
             print("   soprano-tts is installed but broken")
             print("   Fix:")
-            print("      pip uninstall soprano-tts")
-            print("      pip install soprano-tts --no-deps")
-            print("      pip install unidecode")
+            print("   pip uninstall soprano-tts")
+            print("   pip install soprano-tts --no-deps")
+            print("   pip install unidecode")
         
-        print("\n💡 If ComfyUI won't start (undefined symbol: ncclMemFree):")
-        print("   Your PyTorch got upgraded by lmdeploy. Restore it:")
-        print("      pip uninstall lmdeploy torch triton")
-        print("      pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 \\")
-        print("        --extra-index-url https://download.pytorch.org/whl/cu121")
-        print("      pip install xformers==0.0.29.post1")
+        print("\n💡 If ComfyUI won't start (torchvision/operator errors):")
+        print("   Your torch/torchvision/torchaudio versions don't match.")
+        print("   Fix: Install ALL THREE with matching versions:")
+        print("   pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --extra-index-url https://download.pytorch.org/whl/cu121")
+        print("")
+        print("💡 If on Linux with xformers issues:")
+        print("   pip install xformers==0.0.29.post1")
         
         print("\n📖 For detailed help, see README.md")
     
