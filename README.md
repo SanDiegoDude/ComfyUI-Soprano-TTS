@@ -11,6 +11,7 @@ Ultra-lightweight, high-fidelity text-to-speech for ComfyUI using [Soprano TTS](
 - **Ultra-Fast**: ~100-200x real-time generation
 - **High-Fidelity**: 32kHz crystal-clear audio
 - **Lightweight**: <1GB VRAM usage, 80M parameters
+- **All-in-One**: Integrated saving and playback with autoplay
 - **ComfyUI Integration**: Full memory management & interrupt support
 - **Easy Installation**: Works with PyTorch 2.5.1 (no ComfyUI breakage!)
 
@@ -39,12 +40,14 @@ pip install unidecode
 
 1. Add **"Soprano TTS"** node (audio/generation category)
 2. Enter text to synthesize
-3. Connect to an audio save node
-4. Run workflow!
+3. Run workflow — audio plays automatically!
+4. *(Optional)* Connect audio output to other nodes for further processing
 
 **First run**: Downloads model (~500MB) from HuggingFace, takes ~30 seconds, then cached.
 
 ## Node Parameters
+
+### Generation Settings
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -55,9 +58,21 @@ pip install unidecode
 | **seed** | INT | -1 | Change to force regeneration (ComfyUI caching) |
 | **keep_model_loaded** | BOOLEAN | False | Keep in VRAM for faster subsequent runs |
 
+### Audio Output Settings
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| **filename_prefix** | STRING | audio/soprano_tts | Path/prefix for saved files |
+| **format** | ENUM | wav | Output format: wav, mp3, flac, ogg |
+| **bitrate** | ENUM | 320k | Bitrate for mp3/ogg: 128k, 192k, 256k, 320k, VBR |
+| **save** | BOOLEAN | True | Save to output folder (False = temp/preview only) |
+| **autoplay** | BOOLEAN | True | Auto-play audio in the UI when generated |
+
 ### Output
 
 - **audio** (AUDIO): 32kHz waveform compatible with ComfyUI audio nodes
+- **Built-in player**: Audio plays directly in the node (with autoplay option)
+- **Auto-save**: Files saved to `ComfyUI/output/audio/` with counters
 
 ## Tips for Best Results
 
@@ -200,6 +215,8 @@ Soprano uses and/or is inspired by:
 - **PyTorch**: 2.5.0+ (tested with 2.5.1+cu121)
 - **VRAM**: <1GB
 - **Disk**: ~500MB for model cache
+- **pydub**: For integrated audio saving/playback (`pip install pydub`)
+- **ffmpeg**: Required by pydub for MP3/FLAC/OGG export
 
 ## License
 

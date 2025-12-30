@@ -1,12 +1,20 @@
 {
-  "last_node_id": 3,
-  "last_link_id": 2,
+  "id": "21555056-3511-4da1-844a-bc4e944208ae",
+  "revision": 0,
+  "last_node_id": 13,
+  "last_link_id": 14,
   "nodes": [
     {
-      "id": 1,
+      "id": 13,
       "type": "SopranoTTS",
-      "pos": [100, 100],
-      "size": [400, 300],
+      "pos": [
+        3115.066701453024,
+        1385.3148963681497
+      ],
+      "size": [
+        433.48909109774604,
+        410
+      ],
       "flags": {},
       "order": 0,
       "mode": 0,
@@ -15,50 +23,48 @@
         {
           "name": "audio",
           "type": "AUDIO",
-          "links": [1],
-          "shape": 3
+          "links": null
         }
       ],
-      "properties": {},
+      "properties": {
+        "aux_id": "SanDiegoDude/ComfyUI-Soprano-TTS",
+        "ver": "7cf8df394c9103bb1004746c3c939809e82d5665",
+        "Node name for S&R": "SopranoTTS"
+      },
       "widgets_values": [
-        "Hello! I am Soprano, an ultra-lightweight text to speech model. I can generate high-fidelity audio at incredible speeds!",
+        "Hello! I am Soprano, an ultra-lightweight text to speech model.",
         0.3,
         0.95,
         1.2,
-        false
-      ]
-    },
-    {
-      "id": 2,
-      "type": "SCGSaveAudio",
-      "pos": [600, 100],
-      "size": [300, 200],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "audio_data",
-          "type": "AUDIO",
-          "link": 1
-        }
-      ],
-      "outputs": [],
-      "properties": {},
-      "widgets_values": [
-        "soprano/soprano_output",
-        "mp3",
+        490430876,
+        "randomize",
+        false,
+        "audio/soprano_tts",
+        "wav",
         "320k",
+        false,
+        true,
         ""
       ]
     }
   ],
-  "links": [
-    [1, 1, 0, 2, 0, "AUDIO"]
-  ],
+  "links": [],
   "groups": [],
   "config": {},
-  "extra": {},
+  "extra": {
+    "workflowRendererVersion": "LG",
+    "ds": {
+      "scale": 1.0152559799477106,
+      "offset": [
+        -2064.8883020557473,
+        -1031.593266461083
+      ]
+    },
+    "frontendVersion": "1.34.9",
+    "VHS_latentpreview": true,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
   "version": 0.4
 }
-
