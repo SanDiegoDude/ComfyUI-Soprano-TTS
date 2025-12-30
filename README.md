@@ -6,6 +6,10 @@ Ultra-lightweight, high-fidelity text-to-speech for ComfyUI using [Soprano TTS](
 ![License](https://img.shields.io/badge/license-Apache%202.0-green)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.5.1-orange)
 
+<img width="756" height="843" alt="image" src="https://github.com/user-attachments/assets/92aa3758-cef7-4977-86d7-209e12244bcf" />
+
+[soprano_tts_00007.wav](https://github.com/user-attachments/files/24377355/soprano_tts_00007.wav)
+
 ## Features
 
 - **Ultra-Fast**: ~100-200x real-time generation
